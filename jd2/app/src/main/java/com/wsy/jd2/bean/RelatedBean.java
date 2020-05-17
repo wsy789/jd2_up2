@@ -1,4 +1,4 @@
-package com.wf.jd.home.bean;
+package com.wsy.jd2.bean;
 
 import java.util.ArrayList;
 import java.util.List;

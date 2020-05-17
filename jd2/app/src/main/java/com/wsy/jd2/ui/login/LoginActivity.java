@@ -155,8 +155,7 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
                 mmkv.encode("nickname", affirmRegisterBean.getData().getUser_info().getNickname());
                 mmkv.encode("mobile", affirmRegisterBean.getData().getUser_info().getMobile());
 
-                Intent it = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(it);
+                finish();//因为有好几个页面需要跳到此页面来
             }
         }
     }

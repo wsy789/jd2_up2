@@ -1,10 +1,42 @@
 package com.wsy.jd2.bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 
+import java.io.Serializable;
 import java.util.List;
+//序列化 Parcelable 比 Serializable轻量级
+public class NewsBean implements Parcelable {
+    protected NewsBean(Parcel in) {
+        code = in.readInt();
+        message = in.readString();
+    }
 
-public class NewsBean {
+    public static final Creator<NewsBean> CREATOR = new Creator<NewsBean>() {
+        @Override
+        public NewsBean createFromParcel(Parcel in) {
+            return new NewsBean(in);
+        }
+
+        @Override
+        public NewsBean[] newArray(int size) {
+            return new NewsBean[size];
+        }
+    };
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(code);
+        dest.writeString(message);
+    }
+
     //最终封装的子条目的数据实体类
     public static class GoodsListItemBean implements MultiItemEntity {
         public static final int TYPE_Banner= 0;//banner
@@ -70,7 +102,7 @@ public class NewsBean {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Parcelable{
         public static Object ArticleListBean;
         /**
          * start : 44
@@ -91,6 +123,26 @@ public class NewsBean {
         private List<BannerListBean> banner_list;
         private List<FlashListBean> flash_list;
         private List<ArticleListBean> article_list;
+
+        protected DataBean(Parcel in) {
+            start = in.readInt();
+            number = in.readInt();
+            point_time = in.readInt();
+            more = in.readInt();
+            flash_id = in.readInt();
+        }
+
+        public static final Creator<DataBean> CREATOR = new Creator<DataBean>() {
+            @Override
+            public DataBean createFromParcel(Parcel in) {
+                return new DataBean(in);
+            }
+
+            @Override
+            public DataBean[] newArray(int size) {
+                return new DataBean[size];
+            }
+        };
 
         public int getStart() {
             return start;
@@ -156,7 +208,44 @@ public class NewsBean {
             this.article_list = article_list;
         }
 
-        public static class BannerListBean {
+        @Override
+        public int describeContents() {
+            return 0;
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            dest.writeInt(start);
+            dest.writeInt(number);
+            dest.writeInt(point_time);
+            dest.writeInt(more);
+            dest.writeInt(flash_id);
+        }
+
+        public static class BannerListBean implements Parcelable{
+            protected BannerListBean(Parcel in) {
+                id = in.readString();
+                theme = in.readString();
+                description = in.readString();
+                image_url = in.readString();
+                is_good = in.readInt();
+                is_collect = in.readInt();
+                link = in.readString();
+                share_link = in.readString();
+            }
+
+            public static final Creator<BannerListBean> CREATOR = new Creator<BannerListBean>() {
+                @Override
+                public BannerListBean createFromParcel(Parcel in) {
+                    return new BannerListBean(in);
+                }
+
+                @Override
+                public BannerListBean[] newArray(int size) {
+                    return new BannerListBean[size];
+                }
+            };
+
             @Override
             public String toString() {
                 return "BannerListBean{" +
@@ -254,9 +343,48 @@ public class NewsBean {
             public void setShare_link(String share_link) {
                 this.share_link = share_link;
             }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(id);
+                dest.writeString(theme);
+                dest.writeString(description);
+                dest.writeString(image_url);
+                dest.writeInt(is_good);
+                dest.writeInt(is_collect);
+                dest.writeString(link);
+                dest.writeString(share_link);
+            }
         }
 
-        public static class FlashListBean {
+        public static class FlashListBean implements Parcelable{
+            protected FlashListBean(Parcel in) {
+                id = in.readString();
+                theme = in.readString();
+                description = in.readString();
+                is_good = in.readInt();
+                is_collect = in.readInt();
+                link = in.readString();
+                share_link = in.readString();
+            }
+
+            public static final Creator<FlashListBean> CREATOR = new Creator<FlashListBean>() {
+                @Override
+                public FlashListBean createFromParcel(Parcel in) {
+                    return new FlashListBean(in);
+                }
+
+                @Override
+                public FlashListBean[] newArray(int size) {
+                    return new FlashListBean[size];
+                }
+            };
+
             @Override
             public String toString() {
                 return "FlashListBean{" +
@@ -343,9 +471,56 @@ public class NewsBean {
             public void setShare_link(String share_link) {
                 this.share_link = share_link;
             }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(id);
+                dest.writeString(theme);
+                dest.writeString(description);
+                dest.writeInt(is_good);
+                dest.writeInt(is_collect);
+                dest.writeString(link);
+                dest.writeString(share_link);
+            }
         }
 
-        public static class ArticleListBean {
+        public static class ArticleListBean implements Parcelable{
+            protected ArticleListBean(Parcel in) {
+                id = in.readString();
+                view_type = in.readInt();
+                type = in.readString();
+                column_name = in.readString();
+                theme = in.readString();
+                description = in.readString();
+                lead = in.readString();
+                content = in.readString();
+                edit_time = in.readString();
+                image_url = in.readString();
+                is_good = in.readInt();
+                is_collect = in.readInt();
+                link = in.readString();
+                share_link = in.readString();
+                video_is_sans_href = in.readString();
+                video_url = in.readString();
+            }
+
+            public static final Creator<ArticleListBean> CREATOR = new Creator<ArticleListBean>() {
+                @Override
+                public ArticleListBean createFromParcel(Parcel in) {
+                    return new ArticleListBean(in);
+                }
+
+                @Override
+                public ArticleListBean[] newArray(int size) {
+                    return new ArticleListBean[size];
+                }
+            };
+
             @Override
             public String toString() {
                 return "ArticleListBean{" +
@@ -530,6 +705,31 @@ public class NewsBean {
 
             public void setVideo_url(String video_url) {
                 this.video_url = video_url;
+            }
+
+            @Override
+            public int describeContents() {
+                return 0;
+            }
+
+            @Override
+            public void writeToParcel(Parcel dest, int flags) {
+                dest.writeString(id);
+                dest.writeInt(view_type);
+                dest.writeString(type);
+                dest.writeString(column_name);
+                dest.writeString(theme);
+                dest.writeString(description);
+                dest.writeString(lead);
+                dest.writeString(content);
+                dest.writeString(edit_time);
+                dest.writeString(image_url);
+                dest.writeInt(is_good);
+                dest.writeInt(is_collect);
+                dest.writeString(link);
+                dest.writeString(share_link);
+                dest.writeString(video_is_sans_href);
+                dest.writeString(video_url);
             }
         }
 

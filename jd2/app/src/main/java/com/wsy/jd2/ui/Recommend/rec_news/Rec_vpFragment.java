@@ -1,21 +1,28 @@
 package com.wsy.jd2.ui.Recommend.rec_news;
 
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.wsy.jd2.R;
+
+
 import com.wsy.jd2.base.BaseFragment;
-import com.wsy.jd2.base.Constants;
 import com.wsy.jd2.bean.NewsBean;
 import com.wsy.jd2.presenter.Rec_vpPresenter;
 import com.wsy.jd2.ui.contract.Rec_vpContract;
+import com.wsy.jd2.ui.details.DetailsActivity;
+import com.wsy.jd2.ui.details.WebViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +36,7 @@ public class Rec_vpFragment extends BaseFragment<Rec_vpPresenter> implements Rec
     private RecyclerView mRecyclerView;
     private RlvMultiRecVpAdapter adapter;
     private NewsBean.DataBean dataBean;
+
 
 
     public Rec_vpFragment(String tabID) {
@@ -56,6 +64,14 @@ public class Rec_vpFragment extends BaseFragment<Rec_vpPresenter> implements Rec
         adapter = new RlvMultiRecVpAdapter(list1);
 //        mRecyHome.setAdapter(adapter);
         adapter.bindToRecyclerView(mRecyclerView);
+
+   /*     adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Toast.makeText(getActivity(), "点击列表跳转到详情页面", Toast.LENGTH_SHORT).show();
+                Log.i("111", "onItemChildClick: 点击列表跳转到详情页面");
+            }
+        });*/
     }
 
     @Override
@@ -98,11 +114,38 @@ public class Rec_vpFragment extends BaseFragment<Rec_vpPresenter> implements Rec
                 itemBean.itemType = NewsBean.GoodsListItemBean.TYPE_Scroll;
             }else if (articleListBean.getView_type()==1){
                 itemBean.itemType = NewsBean.GoodsListItemBean.TYPE_Lite;
+
+
             }
             itemBean.data=articleListBean;
             list.add(itemBean);
         }
         adapter.addData(list);
+    /*    if(itemBean.itemType!= NewsBean.GoodsListItemBean.TYPE_Banner
+                &&itemBean.itemType != NewsBean.GoodsListItemBean.TYPE_Scroll){
+
+        }*/
+
+        //点击列表跳转到详情页面
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Toast.makeText(getActivity(), "点击列表跳转到详情页面", Toast.LENGTH_SHORT).show();
+                   Log.i("TAG", "onItemChildClick: 点击列表跳转到详情页面");
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                intent.putExtra("article",newsBean.getData().getArticle_list().get(position));
+                getActivity().startActivity(intent);
+            }
+        });
+/*        adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+               Log.i("TAG", "onItemChildClick: 点击列表跳转到详情页面");
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                intent.putExtra("article",newsBean.getData().getArticle_list().get(position));
+                getActivity().startActivity(intent);
+            }
+        });*/
         /*//开头
         ArrayList<NewsBean.GoodsListItemBean> list = new ArrayList<>();
         Log.e("TAG", "推荐列表数据" + newsBean.toString());

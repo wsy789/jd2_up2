@@ -1,6 +1,6 @@
 package com.wsy.jd2.bean;
 
-import com.wf.jd.witgth.CommentsView;
+import com.wsy.jd2.widget.CommentsView;
 
 import java.util.List;
 
@@ -13,12 +13,12 @@ public class CommentBean {
                 ", data=" + data +
                 '}';
     }
-
-    /**
-     * code : 1
-     * message : 操作成功
-     * data : {"start":"0","point_time":1589446341,"more":0,"comment_list":[{"comment_id":"741","type":1,"reply_id":0,"user_id":"266","content":"3","username":"安详的夕阳","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"2分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[]},{"comment_id":"740","type":1,"reply_id":0,"user_id":"266","content":"2","username":"安详的夕阳","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"2分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[]},{"comment_id":"739","type":1,"reply_id":0,"user_id":"266","content":"1","username":"安详的夕阳","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"2分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[]},{"comment_id":"737","type":1,"reply_id":0,"user_id":"266","content":"厉害吗","username":"安详的夕阳","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"3分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[]},{"comment_id":"736","type":1,"reply_id":0,"user_id":"266","content":"这个更厉害","username":"安详的夕阳","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"3分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[]},{"comment_id":"735","type":1,"reply_id":0,"user_id":"262","content":"...","username":"冷静的鸡翅","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"4分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[{"reply_id":"426","type":2,"comment_id":"735","content":"123","from_name":"大胆的手机","to_name":"冷静的鸡翅","from_id":"272","to_id":"262"}]},{"comment_id":"734","type":1,"reply_id":0,"user_id":"272","content":"这个厉害","username":"大胆的手机","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"4分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[{"reply_id":"425","type":2,"comment_id":"734","content":"111222333","from_name":"安详的夕阳","to_name":"大胆的手机","from_id":"266","to_id":"272"},{"reply_id":"424","type":2,"comment_id":"734","content":"我给你多刷几条哈哈哈","from_name":"安详的夕阳","to_name":"大胆的手机","from_id":"266","to_id":"272"},{"reply_id":"423","type":2,"comment_id":"734","content":"哈哈哈","from_name":"安详的夕阳","to_name":"大胆的手机","from_id":"266","to_id":"272"}]}]}
-     */
+/**
+ *
+ * code : 1
+ * message : 操作成功
+ * data : {"start":"0","point_time":1589446341,"more":0,"comment_list":[{"comment_id":"741","type":1,"reply_id":0,"user_id":"266","content":"3","username":"安详的夕阳","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"2分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[]},{"comment_id":"740","type":1,"reply_id":0,"user_id":"266","content":"2","username":"安详的夕阳","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"2分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[]},{"comment_id":"739","type":1,"reply_id":0,"user_id":"266","content":"1","username":"安详的夕阳","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"2分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[]},{"comment_id":"737","type":1,"reply_id":0,"user_id":"266","content":"厉害吗","username":"安详的夕阳","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"3分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[]},{"comment_id":"736","type":1,"reply_id":0,"user_id":"266","content":"这个更厉害","username":"安详的夕阳","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"3分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[]},{"comment_id":"735","type":1,"reply_id":0,"user_id":"262","content":"...","username":"冷静的鸡翅","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"4分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[{"reply_id":"426","type":2,"comment_id":"735","content":"123","from_name":"大胆的手机","to_name":"冷静的鸡翅","from_id":"272","to_id":"262"}]},{"comment_id":"734","type":1,"reply_id":0,"user_id":"272","content":"这个厉害","username":"大胆的手机","head_url":"https://www.seetao.com/Public/static/default_head.jpeg","time_describe":"4分钟前","praise_count_describe":"0","is_praise":0,"reply_start":0,"reply_more":0,"reply_list":[{"reply_id":"425","type":2,"comment_id":"734","content":"111222333","from_name":"安详的夕阳","to_name":"大胆的手机","from_id":"266","to_id":"272"},{"reply_id":"424","type":2,"comment_id":"734","content":"我给你多刷几条哈哈哈","from_name":"安详的夕阳","to_name":"大胆的手机","from_id":"266","to_id":"272"},{"reply_id":"423","type":2,"comment_id":"734","content":"哈哈哈","from_name":"安详的夕阳","to_name":"大胆的手机","from_id":"266","to_id":"272"}]}]}
+ */
 
     private int code;
     private String message;
@@ -59,7 +59,7 @@ public class CommentBean {
                     '}';
         }
 
-        /**
+        /*
          * start : 0
          * point_time : 1589446341
          * more : 0
@@ -362,7 +362,6 @@ public class CommentBean {
             }
         }
     }
-
 
 
 
